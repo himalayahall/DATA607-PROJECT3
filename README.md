@@ -13,4 +13,6 @@ general_skills.csv - general skills for Data Science
 
 software_skills.csv - software skills for Data Science
 
+soft_skills.csv - 'soft'skills for Data Science
+
 education.csv - education keyworks
