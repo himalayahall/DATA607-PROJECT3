@@ -22,14 +22,16 @@
 
 * education_in_demand.csv - education in demand
 
-## Create (local) MySql Database
+## Create MySql Schema (local or cloud)
 
-1. Database schema can be created in one of two ways:
+1. Launch your favorite database tool - e.g. MySQLWorkbench. Connect to the database server using admin-level privileges since you will be creating a new schema in the connected server. If tables have already been created by your admin, skip the next step and go to loading data into tables.
+
+2. Database schema can be created in one of two ways:
 
    - Execute **create_schema.sql** (command line or within MySqlWorkbench)
    - Forward Engineer database using **ER.mwb**  (within MySqlWorkbench)
    
-2. Load data into tables
+3. Load data into tables
 
 - Populate SKILL table - load general_skills.csv, software_skills.csv, and soft_skills.csv. Map columns as follows from source column (CSV column) to destination column (table column):
 
