@@ -2,6 +2,8 @@
 
 ## Artifacts
 
+* Database - team has opted to use AWS RDS/MySql for ease of setup and sharing. However, all database artifacts are posted here to enable setting up a different local (or remote) MySql database
+
 * ER.mwb - ER model 
 
 * Data Science Career Terms - Data set
