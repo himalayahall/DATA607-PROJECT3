@@ -1,18 +1,48 @@
-# Project3
-CUNY Data 607 Project3
+# CUNY Data 607 Project3
 
-ER - ER diagram 
+## Artifacts
 
-Data Science Career Terms - Data set
+* ER.mwb - ER diagram 
 
-create_schema.sql - Schema creation script
+* Data Science Career Terms - Data set
 
-sources.csv - data sources, e.g. LINKEDIN
+* create_schema.sql - Schema creation script
 
-general_skills.csv - general skills for Data Science
+* sources.csv - data sources, e.g. LINKEDIN
 
-software_skills.csv - software skills for Data Science
+* general_skills.csv - general skills for Data Science
 
-soft_skills.csv - 'soft'skills for Data Science
+* software_skills.csv - software skills for Data Science
 
-education.csv - education keyworks
+* soft_skills.csv - 'soft'skills for Data Science
+
+* skills_in_demand.csv - skill in demand
+
+* education.csv - education on keyworks
+
+## Create (local) MySql Database
+
+1. Database schema can be created in one of two ways:
+
+   - Execute **create_schema.sql** (command line or within MySqlWorkbench)
+   - Forward Engineer database using **ER.mwb**  (within MySqlWorkbench)
+   
+2. Load data into tables
+
+- Populate SKILL table - load general_skills.csv, software_skills.csv, and soft_skills.csv. Map columns as follows from source column (CSV column) to destination column (table column):
+
+  - KEYWORD -> SKILL_KEYWORD
+  - CATEGORY -> CATEGORY
+
+- Polulate SOURCE table - load sources.csv
+
+  - SOURCE -> SOURCE_NAME
+
+- Populate SKILL_IN_DEMAND table - load skills_in_demand.csv
+
+  - KEYWORD -> SKILL_KEYWORD
+  - SOURCE -> SOURCE_NAME
+  - COUNT -> COUNT
+  - SURVEY_DATE -> SURVEY_DATE
+
+
