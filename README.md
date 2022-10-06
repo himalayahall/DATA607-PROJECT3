@@ -33,11 +33,11 @@
    
 3. Load data into tables
 
-- Polulate **SOURCE** table - load sources.csv
+- Polulate **SOURCE** table - load sources.csv. Map columns from source column (CSV column) to destination column (table column) as follows:
 
   - SOURCE -> SOURCE_NAME
 
-- Populate **SKILL** table - load general_skills.csv, software_skills.csv, and soft_skills.csv. Map columns as follows from source column (CSV column) to destination column (table column):
+- Populate **SKILL** table - load general_skills.csv, software_skills.csv, and soft_skills.csv.
 
   - KEYWORD -> SKILL_KEYWORD
   - CATEGORY -> CATEGORY
