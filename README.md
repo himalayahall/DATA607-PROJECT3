@@ -44,5 +44,16 @@
   - SOURCE -> SOURCE_NAME
   - COUNT -> COUNT
   - SURVEY_DATE -> SURVEY_DATE
+  
+- Populate EDUCATION table (optional) - load education.csv
+  
+  - KEYWORD -> EDUCATION_KEYWORD
+  
+- Populate EDUCATION_IN_DEMAND table (optional) - load education_in_demand.csv
+  
+  - KEYWORD -> EDUCATION_KEYWORD
+  - SOURCE -> SOURCE_NAME
+  - COUNT -> COUNT
+
 
 
