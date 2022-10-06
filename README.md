@@ -2,7 +2,7 @@
 
 ## Artifacts
 
-* ER.mwb - ER diagram 
+* ER.mwb - ER model 
 
 * Data Science Career Terms - Data set
 
