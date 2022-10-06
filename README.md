@@ -20,6 +20,8 @@
 
 * education.csv - education on keyworks
 
+* education_in_demand.csv - education in demand
+
 ## Create (local) MySql Database
 
 1. Database schema can be created in one of two ways:
