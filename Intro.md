@@ -6,10 +6,10 @@ This document provides an overview of the group members, tools, and data documen
 
 #### Members
 
-Jawaid Hakim
-Josh Iden
-Mathew Katz
-Melissa Bowman
+Jawaid Hakim,
+Josh Iden,
+Mathew Katz,
+Melissa Bowman,
 Christian Uriostegui
 
 #### Tools
