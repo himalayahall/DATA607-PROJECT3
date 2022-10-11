@@ -18,7 +18,7 @@ We are using **Slack** and **Zoom** as the primary collaboration tools. **Github
 
 ## Data
 
-Our data comes from a Kaggle project (https://docs.google.com/spreadsheets/d/1lac1H2IgCDCs9LLTQL6yb6MUPN1u4C5fJv_6YjipIaM/edit#gid=1072460513) which attempted to identify important Data Science skills using keyword searches on popular social/job websites like LinkedIn, Indeed, etc. This dataset was well structured and available as a multi-sheel MS Excel download. We tidyied up in R by extracting data from multiple sheets and generating CSVs to populate the core data model entities (see below).  
+Our data comes from a Kaggle project which attempted to identify important Data Science skills using keyword searches on popular social/job websites like LinkedIn, Indeed, etc. This dataset was well structured and available as a multi-sheel MS Excel download (https://docs.google.com/spreadsheets/d/1lac1H2IgCDCs9LLTQL6yb6MUPN1u4C5fJv_6YjipIaM/edit#gid=1072460513). We tidyied up in R by extracting data from multiple sheets and generating CSVs to populate the core data model entities (see below).  
 
 We discussed refreshing the dataset to make it more current but the APIs required paid subscriptions and we did not have the time to explore no-fee alternatives. However, we decided to include timestamps in all entities to make it possible for time series data to coexist within our data model. This design feature can be leveraged by future projects.
 
