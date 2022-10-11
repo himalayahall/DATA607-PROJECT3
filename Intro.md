@@ -24,7 +24,9 @@ We discussed refreshing the dataset to make it more current but the APIs require
 
 ## Data Model
 
-We started the data model exercise by leveraging the ER modeling capabilities of MySQLWorkbench. After modeling the normalized data model entities we were able to generate the SQL scripts from schema creation from MySQLWorkbench which make it easy to forward engineer the schema on both AWS and local MySQL. The schema includes foreign key relationships and referential integrity checks and actions.
+We started the data model exercise by leveraging the ER modeling capabilities of MySQLWorkbench. After modeling the normalized data model entities we were able to generate the SQL scripts from schema creation from MySQLWorkbench which make it easy to forward engineer the schema on both AWS and local MySQL. The schema includes foreign key relationships and referential integrity checks and actions.  
+
+https://github.com/himalayahall/DATA607-PROJECT3/blob/main/ER.png
 
 Entities:
 
