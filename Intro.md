@@ -14,7 +14,7 @@ Christian Uriostegui
 
 ## Tools
 
-We are using **Slack** and **Zoom** as the primary collaboration tools. **Github** is used as the repository for all artifacts (R code, SQL scripts, ER diagrams, etc.). For ease of sharing data, we are using **AWS RDS MySql**.
+We are using **Slack** and **Zoom** as the primary collaboration tools. **Github** is used as the repository for all artifacts (Project documentation, R code, SQL scripts, ER diagram, etc.). We chose **MySQL** for our relations database. Furthermore, to facilitate sharing of schema and data, we are using **AWS RDS MySql**.
 
 ## Data
 
