@@ -6,6 +6,8 @@
 
 * ER.mwb - ER model 
 
+* ER.png - ER model as a PNG
+
 * Data Science Career Terms - Data set
 
 * create_schema.sql - Schema creation script
