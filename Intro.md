@@ -31,13 +31,13 @@ ER diagram - https://github.com/himalayahall/DATA607-PROJECT3/blob/main/ER.png
 Entities:
 
 1. SOURCE  
-    Souce of demand data (Linkedin, Monster, etc.)
+    Sources of demand data (Linkedin, Monster, etc.)
     
 3. SKILL  
-    Skill and category (Software, General, Soft)
+    Skills and categories (Software, General, Soft)
     
 5. EDUCATION  
-    Education level (BS, MS, etc.)
+    Education levels (BS, MS, etc.)
     
 7. SKILL_IN_DEMAND  
     Skill demand (Source, skill, demand, etc.)
