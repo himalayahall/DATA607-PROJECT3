@@ -24,7 +24,7 @@ We discussed refreshing the dataset to make it more current but the APIs require
 
 ## Data Model
 
-We started the data model exercise by leveraging the ER modeling capabilities of MySQLWorkbench. After creating the normalized data model entities we were able to auto-generate schema creation SQL scripts, which make it easy to forward engineer schema on both AWS and local MySQL. Schema includes foreign key relationships and referential integrity checks/actions (e.g. cascade delete).
+We started the data model exercise by leveraging the ER modeling capabilities of MySQLWorkbench. After creating the normalized data model entities we were able to auto-generate schema creation SQL scripts, which make it easy to forward engineer schema on both AWS and local MySQL. Schema includes foreign key relationships and referential integrity checks/actions (e.g. cascade delete). As mentioned above, entities include timestamps for tracking survey date and record level create/update actions.
 
 ER diagram - https://github.com/himalayahall/DATA607-PROJECT3/blob/main/ER.png
 
