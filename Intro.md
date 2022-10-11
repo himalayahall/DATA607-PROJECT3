@@ -34,7 +34,7 @@ Entities:
     Sources of demand data (Linkedin, Monster, etc.)
     
 3. SKILL  
-    Skills and categories (Software, General, Soft)
+    Skills (R, NLP, Communication, etc.) and categories (Software, General, Soft)
     
 5. EDUCATION  
     Education levels (BS, MS, etc.)
