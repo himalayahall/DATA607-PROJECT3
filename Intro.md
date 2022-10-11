@@ -34,7 +34,7 @@ Entities:
     Sources of demand data (Linkedin, Monster, etc.)
     
 3. SKILL  
-    Skills (R, NLP, Communication, etc.) and categories (Software, General, Soft)
+    Skills (R, NLP, Communication, etc.) and categories. Skill categories are T_SOFTWARE, T_GENERAL, and SOFT. The *T_* prefeix designates *technical* skills - *software* and *general*. The prefix also makes it straightforward to filter technical skills from *soft* skills. 
     
 5. EDUCATION  
     Education levels (BS, MS, etc.)
