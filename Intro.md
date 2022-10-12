@@ -26,7 +26,7 @@ Our data comes from a Kaggle project which attempted to identify important Data 
 
 We extracting data from multiple Excel sheets, tidyied it using R, and generated output CSVs for populating the core data model entities (see below). This involved data transformations such as categorizing skills, adding survey timestamp, etc.  
 
-We discussed refreshing the dataset to make it more current but the vendor APIs require paid subscriptions and we did not have time to explore no-fee alternatives. However, we have decided added timestamps to all entities in our data model. This design feature can be leveraged by future projects to do time series analysis of required skills and education.
+We discussed refreshing the dataset to make it more current but the vendor APIs require paid subscriptions and we also did not have enough time to explore no-fee alternatives. However, we have decided added timestamps to all entities in our data model. This design feature can be leveraged by future projects to do time series analysis of required skills and education.
 
 ## Data Model
 
