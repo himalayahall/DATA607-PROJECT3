@@ -28,7 +28,7 @@ Data was extracted from multiple Excel sheets, tidyied it using R, and generated
 
 The team discussed refreshing the source dataset to make it more current but the vendor APIs required paid subscriptions. In addition, we did not have sufficient time to explore no-fee alternatives.  
 
-We have added timestamps to all entities in our data model. This design feature can be leveraged by future projects to do time series analysis of required Data Science skills and education.
+We have added timestamps to all entities in our data model. This feature can be leveraged by future projects to do time series analysis of required Data Science skills and education.
 
 ## Data Model
 
