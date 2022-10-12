@@ -22,9 +22,9 @@ We selected **MySQL** for our relations database and **MySQLWorkbench** as the p
 
 ## Data
 
-Our data comes from a Kaggle project which attempted to identify important Data Science skills using keyword searches on popular social/job websites like LinkedIn, Indeed, etc. This dataset was well structured and available as a multi-sheel MS Excel download (https://docs.google.com/spreadsheets/d/1lac1H2IgCDCs9LLTQL6yb6MUPN1u4C5fJv_6YjipIaM/edit#gid=1072460513).  
+Our data comes from a Kaggle project which attempted to identify important Data Science skills using keyword searches on popular social/job websites like LinkedIn, Indeed, etc. This dataset was well structured and available as a multi-sheet MS Excel download (https://docs.google.com/spreadsheets/d/1lac1H2IgCDCs9LLTQL6yb6MUPN1u4C5fJv_6YjipIaM/edit#gid=1072460513).  
 
-We tidyied up in R by extracting data from multiple sheets and generating CSVs to populate the core data model entities (see below). This involved data transformations such as categorizing skills, adding survey timestamp, etc.  
+We did tidying using R by extracting data from multiple sheets and generating CSVs to populate the core data model entities (see below). This involved data transformations such as categorizing skills, adding survey timestamp, etc.  
 
 We discussed refreshing the dataset to make it more current but the vendor APIs require paid subscriptions and we did not have time to explore no-fee alternatives. However, we have decided added timestamps to all entities in our data model. This design feature can be leveraged by future projects to do time series analysis of required skills and education.
 
