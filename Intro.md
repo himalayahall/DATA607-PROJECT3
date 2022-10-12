@@ -30,6 +30,8 @@ The team discussed refreshing the source dataset to make it more current but the
 
 We have added timestamps to all entities in our data model. This feature can be leveraged by future projects to do time series analysis of required Data Science skills and education.
 
+The output CSVs were uploaded into tables in an AWS MySQL database for storage and access.
+
 ## Data Model
 
 We started the data model exercise by leveraging the ER modeling capabilities of MySQLWorkbench. After creating the normalized data model entities we were able to auto-generate schema creation SQL scripts, which make it easy to forward engineer schema on both AWS and local MySQL. Schema includes foreign key relationships and referential integrity checks/actions (e.g. cascade delete). As mentioned above, entities include timestamps for tracking survey date and record level create/update actions.
