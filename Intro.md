@@ -2,8 +2,6 @@
 
 This document provides an overview of the group members, tools, and data documentation for Project 3
 
-#######################
-
 ## Members
 
 Jawaid Hakim  
