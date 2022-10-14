@@ -20,7 +20,7 @@ Our RDBMS is **MySQL** and **MySQLWorkbench** is the database design IDE. Furthe
 
 ## Data
 
-Our data comes from a Kaggle project which attempted to identify important Data Science skills using keyword searches on popular social/job websites like LinkedIn, Indeed, etc. This dataset was well structured and available as a multi-sheet MS Excel download (https://docs.google.com/spreadsheets/d/1lac1H2IgCDCs9LLTQL6yb6MUPN1u4C5fJv_6YjipIaM/edit#gid=1072460513).  
+Our data comes from a Kaggle project which attempted to identify important Data Science skills using keyword searches on popular social/job websites like LinkedIn, Indeed, etc. This dataset was well-structured and available as a multi-sheet MS Excel download (https://docs.google.com/spreadsheets/d/1lac1H2IgCDCs9LLTQL6yb6MUPN1u4C5fJv_6YjipIaM/edit#gid=1072460513).  
 
 Data was extracted from multiple Excel sheets, tidyied using R, and output CSVs were generated for populating the core data model entities (see below). This involved data transformations such as categorizing skills, adding survey timestamp, etc.  
 
