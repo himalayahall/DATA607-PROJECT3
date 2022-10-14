@@ -1,4 +1,4 @@
-# CUNY Data 607 Project3
+# CUNY DATA 607 - Project3
 
 ## Artifacts
 
