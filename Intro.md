@@ -22,17 +22,17 @@ Our RDBMS is **MySQL** and **MySQLWorkbench** is the preferred database design I
 
 Our data comes from a Kaggle project which attempted to identify important Data Science skills using keyword searches on popular social/job websites like LinkedIn, Indeed, etc. This dataset was well structured and available as a multi-sheet MS Excel download (https://docs.google.com/spreadsheets/d/1lac1H2IgCDCs9LLTQL6yb6MUPN1u4C5fJv_6YjipIaM/edit#gid=1072460513).  
 
-Data was extracted from multiple Excel sheets, tidyied it using R, and generated output CSVs for populating the core data model entities (see below). This involved data transformations such as categorizing skills, adding survey timestamp, etc.  
+Data was extracted from multiple Excel sheets, tidyied using R, and output CSVs were generated for populating the core data model entities (see below). This involved data transformations such as categorizing skills, adding survey timestamp, etc.  
 
 The team discussed refreshing the source dataset to make it more current but the vendor APIs required paid subscriptions. In addition, we did not have sufficient time to explore no-fee alternatives.  
 
 We have added timestamps to all entities in our data model. This feature can be leveraged by future projects to do time series analysis of required Data Science skills and education.
 
-The output CSVs were uploaded into tables in an AWS MySQL database for storage and access.
+Output CSVs were uploaded into an AWS MySQL database for shared storage and access.
 
 ## Data Model
 
-We started the data model exercise by leveraging the ER modeling capabilities of MySQLWorkbench. After creating the normalized data model entities we were able to auto-generate schema creation SQL scripts, which make it easy to forward engineer schema on both AWS and local MySQL. Schema includes foreign key relationships and referential integrity checks/actions (e.g. cascade delete). As mentioned above, entities include timestamps for tracking survey date and record level create/update actions.
+We started the data model exercise by leveraging the ER modeling capabilities of MySQLWorkbench. After creating normalized data model entities, we were able to auto-generate SQL scripts for database schema creation, which made it easy to forward engineer schema on both AWS and local MySQL. Schema includes foreign key relationships and referential integrity checks/actions (e.g. cascade delete). As mentioned above, entities include timestamps for tracking survey date and record level create/update actions.
 
 ER diagram - https://github.com/himalayahall/DATA607-PROJECT3/blob/main/ER.png
 
