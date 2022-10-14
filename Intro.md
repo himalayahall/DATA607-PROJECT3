@@ -34,6 +34,8 @@ Output CSVs were uploaded into an AWS MySQL database for shared storage and acce
 
 We started the data model exercise by leveraging the ER modeling capabilities of MySQLWorkbench. After creating normalized data model entities, we were able to auto-generate SQL scripts for database schema creation, which made it easy to forward engineer schema on both AWS and local MySQL. Schema includes foreign key relationships and referential integrity checks/actions (e.g. cascade delete). As mentioned above, entities include timestamps for tracking survey date and record level create/update actions.
 
+For greater details on the data model and associated artifacts, see https://github.com/himalayahall/DATA607-PROJECT3/blob/main/README.md
+
 ER diagram - https://github.com/himalayahall/DATA607-PROJECT3/blob/main/ER.png
 
 Entities:
