@@ -2,9 +2,9 @@
 
 ## Artifacts
 
-* Database - team has opted to use AWS RDS/MySql for ease of setup and sharing. However, all database artifacts are posted here to enable setting up a different local (or remote) MySql database
+* Database - we have selected AWS RDS/MySql for ease of setup and data sharing. However, all database artifacts are posted here to enable bootstrapping a different (local or remote) MySql database
 
-* ER.mwb - ER model 
+* ER.mwb - database document created by MySQL Workbench; saves a database design, called an EER (Enhanced Entity-Relationship) model; defines tables, views, routines, privileges, and other constructs for a database. 
 
 * ER.png - ER model as a PNG
 
@@ -28,16 +28,16 @@
 
 ## Create MySql Schema (local or cloud)
 
-1. Launch your favorite database tool - e.g. MySQLWorkbench. Connect to the database server using admin-level privileges since you will be creating a new schema in the connected server. If tables have already been created by your admin, skip the next step and go to loading data into tables.
+1. Launch your favorite database tool - e.g. MySQLWorkbench. Connect to the database server using admin-level privileges since you will be creating a new schema in the connected server. If tables have already been created by your admin, skip the next step and go straight to Loading data into tables.
 
 2. Database schema can be created in one of two ways:
 
    - Execute **create_schema.sql** (command line or within MySqlWorkbench)
    - Forward Engineer database using **ER.mwb**  (within MySqlWorkbench)
    
-3. Load data into tables
+3. Loading data into tables
 
-- Polulate **SOURCE** table from **sources.csv**. Map columns from source column (CSV column) to destination column (table column) as follows:
+- Populate **SOURCE** table from **sources.csv**. Map from source column (CSV column) to destination column (table column) as follows:
 
   - SOURCE -> SOURCE_NAME
 
