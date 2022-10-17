@@ -1,0 +1,88 @@
+---
+title: "Wordcloud"
+author: "Jawaid Hakim"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Load library
+
+```{r load-library}
+library(DBI)
+library(RMySQL)
+library(RMariaDB)
+library(dplyr)
+library(knitr)
+library(wordcloud)
+library(wordcloud2)
+library(RColorBrewer)
+```
+
+# Data
+
+Setup database connection parameters.
+
+```{r conn-params}
+# connection params
+user <- 'guest'
+pw <- 'guestpass'
+hostname <- 'cunyspsds.c5iiratvieki.us-east-1.rds.amazonaws.com'
+```
+
+Connect to database and list tables.
+
+```{r}
+projectDb <- dbConnect(MariaDB(), user='guest', password=pw, 
+                      dbname='Project3', host=hostname)
+
+# preview the tables
+dbListTables(projectDb)
+```
+
+Load skills data.
+
+```{r}
+qry <- "SELECT * FROM SKILL_IN_DEMAND;"
+
+# store the results as a dataframe
+rs <- dbSendQuery(projectDb, qry)
+
+skills <- dbFetch(rs)
+
+dbClearResult(rs) # clear the result
+```
+
+Summarize skill counts.
+
+```{r}
+skills_summary <- skills %>%
+                    group_by(SKILL_KEYWORD) %>%
+                    summarise(TOTAL = sum(COUNT))
+```
+
+Generate skills wordcloud.
+
+```{r}
+set.seed(1234)
+wordcloud::wordcloud(words = skills_summary$SKILL_KEYWORD, 
+                     freq = skills_summary$TOTAL, 
+                     min.freq = 100, 
+                     max.words = 50, 
+                     random.order = FALSE, 
+                     random.color = FALSE, 
+                     rot.per = 0.25, 
+                     colors = brewer.pal(8, "Dark2"), 
+                     scale = c(2.5, 0.40))
+
+```
+Generate skills wordcloud2.
+
+```{r}
+set.seed(1234)
+wordcloud2(data=skills_summary, color = 'random-dark', shape = 'circle', size = 1.0)
+```
+
