@@ -1,3 +1,4 @@
+library(DBI)
 library(RMariaDB)
 library(tidyverse)
 
