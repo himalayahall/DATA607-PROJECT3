@@ -60,9 +60,8 @@ skills_count <- skills |>
 
 ggplot(skills_count, aes(x=reorder(SKILL, TOTAL),
                          y=TOTAL)) +
-  geom_col() +
+  geom_col(fill="lightblue", color="white") +
   coord_flip() + 
-  theme_minimal() +
   theme(axis.text.y = element_text(size = 4)) +
   labs(x = "SKILL", title="SKILLS IN DEMAND")
   
