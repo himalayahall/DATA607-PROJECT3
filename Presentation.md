@@ -1,16 +1,26 @@
 # Presentation
 
+- [ ] Data - Josh
+- [ ] Data Model - Jawaid
+- [ ] Data Wrangling - Melissa
+- [ ] Database - Jawaid
+- [ ] EDAs - Josh and Christian
+
 # Project Overview
 
 See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md) for team introduction and project overview. 
 
 # Data
 
+
 ## Data Model
 
+<details>
 ![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
+</details>
 
 Entities:
+<details>
 
 1. SOURCE  
     Sources of demand data (Linkedin, Monster, etc.)
@@ -26,6 +36,7 @@ Entities:
     
 9. EDUCATION_IN_DEMAND  
     Education demand (Source, education, demand, etc.)
+</details>
 
 ## Data Wrangling
 
