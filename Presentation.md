@@ -18,7 +18,7 @@ See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md)
 
 ![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
 
-<details><summary>Entities</summary>
+<details><summary>Entities (Click Me)</summary>
 
 1. SOURCE  
     Sources of demand data (Linkedin, Monster, etc.)
