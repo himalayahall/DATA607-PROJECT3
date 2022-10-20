@@ -8,7 +8,7 @@ See [introduction](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/In
 
 ## Data Model
 
-![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/ER.png)
+![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
 
 Entities:
 
