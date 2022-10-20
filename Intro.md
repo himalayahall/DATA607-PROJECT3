@@ -7,7 +7,7 @@ This document provides an overview of the group members, tools, and data documen
 Jawaid Hakim  
 Josh Iden  
 Melissa Bowman  
-Christian Uriostegui
+Christian Uriostegui  
 Mathew Katz  
 
 ## Tools
