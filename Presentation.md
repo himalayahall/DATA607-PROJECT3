@@ -1,5 +1,6 @@
 # Presentation
 
+## TODO
 - [ ] Data - Josh
 - [ ] Data Model - Jawaid
 - [ ] Data Wrangling - Melissa
@@ -15,12 +16,9 @@ See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md)
 
 ## Data Model
 
-<details>
 ![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
-</details>
 
-Entities:
-<details>
+<details><summary>Entities</summary>
 
 1. SOURCE  
     Sources of demand data (Linkedin, Monster, etc.)
@@ -40,6 +38,43 @@ Entities:
 
 ## Data Wrangling
 
-## Database
+## Database Design and Data Loading
+
+```mermaid
+flowchart TD;
+    
+    subgraph Database Install
+    
+        id1((Operational))-- Provision -->id2[(AWS MySQL)]
+    
+    end
+    
+    subgraph Data Model and Schema Creation
+    
+        id10((Design))-- Model -->id20{Good enough?}
+    
+        id20-- Yes -->id30(ER)
+    
+        id20-- No -->id10
+    
+        id30-- Auto Generate -->id40(DDL SQL Script)
+    
+        id40-- Execute -->id2
+
+    end
+    
+    subgraph Data Wrangling  
+
+        id6[\Source Data\]-- Download-->id7(CSV)
+
+        id7-.->id110
+        
+        id100((Design))-- Create -->id110(R Scripts)
+        
+        id110-- Load Data --> id2
+        
+      end
+
+```
 
 # Exploratory Data Analysis
