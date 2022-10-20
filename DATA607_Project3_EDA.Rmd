@@ -1,0 +1,36 @@
+---
+title: "DATA607_Project3_EDA"
+author: "Josh Iden"
+date: "2022-10-20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## EXPLORATORY DATA ANALYSIS
+
+#### This introduces the first chunk
+
+```{r}
+
+```
+
+This describes the above chunk
+
+#### This introduces the second chunk
+
+```{r}
+
+```
+
+This describes the above chunk
+
+#### This introduces the third chunk
+
+```{r}
+
+```
+
+This describes the above chunk
