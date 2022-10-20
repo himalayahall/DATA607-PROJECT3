@@ -1,8 +1,8 @@
 # Presentation
 
 ## TODO
-- [ ] Data  - Josh
-- [ ] Data Wrangling - Melissa
+- [ ] Data  - Melissa
+- [ ] Data Wrangling - Josh
 - [ ] Database Design and Data Loading - Jawaid
 - [ ] Data Model - Jawaid
 - [ ] EDAs - Josh and Christian
