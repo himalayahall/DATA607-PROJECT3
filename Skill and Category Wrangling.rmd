@@ -1,0 +1,112 @@
+---
+title: "Project 3 - extract keywords and categories"
+author: ""
+output:
+  pdf_document: default
+  html_document:
+    includes:
+      in_header: header.html
+    css: ./lab.css
+    highlight: pygments
+    theme: cerulean
+    toc: true
+    toc_float: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Load library
+
+```{r}
+library(tidyverse)
+```
+
+# Set up input/output folders
+
+```{r}
+inputDir <- "/Users/jawaidhakim/Downloads/"
+
+outputDir <- "/Users/jawaidhakim/Downloads/"
+```
+
+# Load data
+
+```{r input-file-path}
+inputFile <- str_c(inputDir, "Data Science Career Terms.xlsx")
+```
+
+List sheets.
+
+```{r list-sheets}
+readxl::excel_sheets(inputFile)
+```
+
+Load sheets.
+
+```{r load-sheets}
+
+skills <- readxl::read_xlsx("/Users/jawaidhakim/Downloads/Data Science Career Terms.xlsx", "ds skills")
+
+software <- readxl::read_xlsx("/Users/jawaidhakim/Downloads/Data Science Career Terms.xlsx", "ds software")
+```
+
+Tidy technical and soft skills. **Keyword** column contains skill names from first row until cell value **Total**.
+
+```{r}
+# Find row index of Total
+totalIdx <- which(skills$Keyword == "Total")
+
+skills <- skills %>% 
+           # Grab beginning rows until and excluding Total entry
+           slice_head(n = totalIdx - 1) %>% 
+           # select Keyword column
+           select(Keyword) %>%
+           # drop NA
+           filter(! is.na(Keyword)) %>%
+           # uppercase
+           mutate(Keyword = str_to_upper(Keyword)) %>%
+           # add T_GENERAL and T_SOFT categories
+           mutate(Category=ifelse(Keyword == "COMMUNICATION", "T_SOFT", 
+                    ifelse(Keyword == "PROJECT MANAGEMENT", "T_SOFT", "T_GENERAL")))
+nrow(skills)
+tail(skills)
+```
+
+```{r}
+totalIdx <- which(software$Keyword == "Total")
+
+software <- software %>% 
+           # Grab beginning rows until and excluding Total entry
+           slice_head(n = totalIdx - 1) %>% 
+           # select Keyword column
+           select(Keyword) %>%
+           # drop NA
+           filter(! is.na(Keyword)) %>%
+           # uppercase
+           mutate(Keyword = str_to_upper(Keyword)) %>%
+           # add T_SOFTWARE category
+           mutate(Category = "T_SOFTWARE")
+nrow(software)
+tail(software)
+```
+
+# Output
+
+Write software skills CSV.
+
+```{r software-skills-csv}
+outputFile <- str_c(inputDir, "software_skills.csv")
+write.csv(software, outputFile)
+```
+
+Write general skills CSV.
+
+```{r general-skills-csv}
+outputFile <- str_c(inputDir, "general_skills.csv")
+write.csv(skills, outputFile)
+```
+
