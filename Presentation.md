@@ -2,7 +2,7 @@
 
 # Project Overview
 
-See [introduction](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md) for team members and overview of the approach on this project. 
+See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md) for team introduction and project overview. 
 
 # Data
 
