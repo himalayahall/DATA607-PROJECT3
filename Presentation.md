@@ -1,20 +1,66 @@
 # Presentation
 
 ## TODO
-- [ ] Data - Josh
-- [ ] Data Model - Jawaid
+- [ ] Data  - Josh
 - [ ] Data Wrangling - Melissa
-- [ ] Database - Jawaid
+- [ ] Database Design and Data Loading - Jawaid
+- [ ] Data Model - Jawaid
 - [ ] EDAs - Josh and Christian
 
 # Project Overview
 
 See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md) for team introduction and project overview. 
 
-# Data
+# Data Source
+(describe data source)
 
+## Data Wrangling 
+(describe data wrangling strategy - R scripts, manual population of smaller tables, etc.)
+
+## Database Design and Data Loading 
+(describe database design approach and data loading)
+
+```mermaid
+flowchart TD;
+    
+    subgraph Database Install
+    
+        id1((Start))-- Provision -->id2[(AWS MySQL)]
+        
+        id2-. Monitor .->id3(AWS CloudWatch)
+    
+    end
+    
+    subgraph Data Model and Schema Creation
+    
+        id10((Start))-- Data Model -->id20{Good enough?}
+    
+        id20-- Yes -->id30(ER)
+    
+        id20-- No -->id10
+    
+        id30-- Auto Generate -->id40(DDL SQL Script)
+    
+        id40-- Execute -->id2
+
+    end
+    
+    subgraph Data Wrangling  
+
+        id6[\Source Data\]-- Download-->id7(XSLX)
+
+        id7-. Read .->id110
+        
+        id100((Start))-- Create -->id110(R Scripts)
+        
+        id110-- Load Data --> id2
+        
+      end
+
+```
 
 ## Data Model
+(describe data model)
 
 ![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
 
@@ -36,47 +82,5 @@ See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md)
     Education demand (Source, education, demand, etc.)
 </details>
 
-## Data Wrangling
-
-## Database Design and Data Loading
-
-```mermaid
-flowchart TD;
-    
-    subgraph Database Install
-    
-        id1((Start))-- Provision -->id2[(AWS MySQL)]
-        
-        id2-. Monitor .->id3(AWS CloudWatch)
-    
-    end
-    
-    subgraph Data Model and Schema Creation
-    
-        id10((Start))-- Model -->id20{Done?}
-    
-        id20-- Yes -->id30(ER)
-    
-        id20-- No -->id10
-    
-        id30-- Auto Generate -->id40(DDL SQL Script)
-    
-        id40-- Execute -->id2
-
-    end
-    
-    subgraph Data Wrangling  
-
-        id6[\Source Data\]-- Download-->id7(CSV)
-
-        id7-. Read .->id110
-        
-        id100((Start))-- Create -->id110(R Scripts)
-        
-        id110-- Load Data --> id2
-        
-      end
-
-```
-
-# Exploratory Data Analysis
+# Exploratory Data Analysis 
+(describe EDAs)
