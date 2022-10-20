@@ -2,7 +2,18 @@
 title: "DATA607_Project3_Wrangling"
 author: "Josh Iden"
 date: "2022-10-20"
-output: html_document
+output:
+  pdf_document: default
+  html_document:
+    includes:
+      in_header: header.html
+    css: ./lab.css
+    highlight: pygments
+    theme: cerulean
+    toc: true
+    toc_float: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -11,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## DATA WRANGLING
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 # load packages
 library(tidyverse)
 library(readxl)
@@ -19,12 +30,15 @@ library(stringr)
 library(lubridate)
 ```
 
-We stored the original multi-sheet .xlsx file from Kaggle in the project GitHub repo. Because of the structure of the file, we had to extract the individual sheets locally, which we then wrote to .csvs and stored to the project repo for database ingestion: 
+We stored the original multi-sheet .xlsx file from Kaggle in the project GitHub repo. Due to the structure of the file, we extracted the individual sheets locally, which we then wrote to CSVs and stored to the project repo for database ingestion:
 
-```{r}
+```{r load-data}
 # read file locally 
 file <- "/Users/joshiden/Documents/Classes/CUNY SPS/Fall 2022/DATA 607/Projects/Project 3/Data Science Career Terms.xlsx"
 excel <- read_excel(file)
+
+# store sheet names
+sheets <- excel_sheets(file)
 
 # read sheets into dataframes
 ds_skills <- read_excel(file, sheet = sheets[1])
@@ -37,15 +51,58 @@ Previewing the output dataframes,
 ```{r}
 head(ds_skills)
 ```
+
 ```{r}
 head(ds_software)
 ```
+
 ```{r}
 head(education)
 ```
-Applying transformations to standardize and retain the desired data:
 
-```{r}
+Tidy technical and soft skills for category output tables. **Keyword** column contains skill names from first row until cell value **Total**.
+
+```{r tidy-skills}
+# Find row index of Total
+totalIdx <- which(ds_skills$Keyword == "Total")
+
+skills <- ds_skills |> 
+           # Grab beginning rows until and excluding Total entry
+           slice_head(n = totalIdx - 1) |>
+           # select Keyword column
+           select(Keyword) |>
+           # drop NA
+           filter(! is.na(Keyword)) |>
+           # uppercase
+           mutate(Keyword = str_to_upper(Keyword)) |>
+           # add T_GENERAL and T_SOFT categories
+           mutate(Category=ifelse(Keyword == "COMMUNICATION", "T_SOFT", 
+                    ifelse(Keyword == "PROJECT MANAGEMENT", "T_SOFT", "T_GENERAL")))
+nrow(skills)
+tail(skills)
+```
+
+```{r tidy-software}
+totalIdx <- which(ds_software$Keyword == "Total")
+
+software <- ds_software |> 
+           # Grab beginning rows until and excluding Total entry
+           slice_head(n = totalIdx - 1) |> 
+           # select Keyword column
+           select(Keyword) |>
+           # drop NA
+           filter(! is.na(Keyword)) |>
+           # uppercase
+           mutate(Keyword = str_to_upper(Keyword)) |>
+           # add T_SOFTWARE category
+           mutate(Category = "T_SOFTWARE")
+nrow(software)
+tail(software)
+```
+
+Applying transformations to standardize and retain the desired data for data tables:
+
+```{r transform-skills}
 # keep only first 15 rows
 # Keyword to upper
 # pivot columns to column: source
@@ -59,7 +116,8 @@ ds_skills_transformed <- ds_skills |>
 
 ds_skills_transformed
 ```
-```{r}
+
+```{r transform-software}
 # keep top 37 rows
 # keyword to upper
 # pivot columns to source
@@ -76,7 +134,8 @@ ds_software_transformed <- ds_software |>
 
 ds_software_transformed
 ```
-```{r}
+
+```{r transform-education}
 # keyword to uppercase
 # pivot columns to source
 # source column to uppercase
@@ -94,21 +153,32 @@ education_transformed <- education |>
 
 education_transformed
 ```
-Combining ds_skills_transformed and ds_software_transformed -> skills_in_demand
-```{r}
+
+Combining ds_skills_transformed and ds_software_transformed -\> skills_in_demand
+
+```{r transform-skills-in-demand}
 #skills in demand
 skills_in_demand <- rbind(ds_skills_transformed,ds_software_transformed)
 skills_in_demand
 ```
-The files were then written to CSV and added to the project repository for database ingestion. 
 
-```{r}
+The files were then written to CSV and added to the project repository for database ingestion.
+
+```{r output-files}
+# write to software_skills.csv
+# outputDir <- "/Users/jawaidhakim/Downloads/"
+# outputFile <- str_c(inputDir, "software_skills.csv")
+# write.csv(software, outputFile)
+
+# write to general_skills.csv
+# outputFile <- str_c(inputDir, "general_skills.csv")
+# write.csv(skills, outputFile)
+
 # write to skills_in_demand.csv
-sid <- "/Users/joshiden/Documents/Classes/CUNY SPS/Fall 2022/DATA 607/Projects/skills_in_demand.csv"
-write.csv(skills_in_demand, sid)
+# sid <- "/Users/joshiden/Documents/Classes/CUNY SPS/Fall 2022/DATA 607/Projects/skills_in_demand.csv"
+# write.csv(skills_in_demand, sid)
 
 # write to education_in_demand.csv
-eid <- "/Users/Melissa/OneDrive/Documents/CUNY/Fall 2022/Data 607/Project 3/education_in_demand.csv"
-write.csv(education_transformed, eid)
+# eid <- "/Users/Melissa/OneDrive/Documents/CUNY/Fall 2022/Data 607/Project 3/education_in_demand.csv"
+# write.csv(education_transformed, eid)
 ```
-
