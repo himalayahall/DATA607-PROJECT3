@@ -70,7 +70,8 @@ flowchart TD;
     Sources of demand data (Linkedin, Monster, etc.)
     
 3. SKILL  
-    Skills (R, NLP, Communication, etc.) and categories. Skill categories are T_SOFTWARE, T_GENERAL, and SOFT. The *T_* prefeix designates *technical* skills - *software* and *general*. The prefix also makes it straightforward to filter technical skills from *soft* skills. 
+    - Skill (R, NLP, Communication, etc.)
+    - Category - in the source dataset skills are grouped 2 tabs: **DS skills**, and **DS software**. Within *DS software* are **technical** skills (machine learning, statistics, etc.) and **soft** skills (communication and project management). Since these sub-catrgories are not identified explicitly in the source dataset, manual tagging was necessary. The final category buckets are **T_SOFTWARE**, **T_GENERAL**, and **SOFT**. The *T* prefeix designates *technical* skills, which includes both  *software* and *general*. Adding the prefix also makes it straightforward to filter technical and soft Data Science skills. 
     
 5. EDUCATION  
     Education levels (BS, MS, etc.)
