@@ -45,13 +45,15 @@ flowchart TD;
     
     subgraph Database Install
     
-        id1((Operational))-- Provision -->id2[(AWS MySQL)]
+        id1((Start))-- Provision -->id2[(AWS MySQL)]
+        
+        id2-. Monitor .->id3(AWS CloudWatch)
     
     end
     
     subgraph Data Model and Schema Creation
     
-        id10((Design))-- Model -->id20{Good enough?}
+        id10((Start))-- Model -->id20{Done?}
     
         id20-- Yes -->id30(ER)
     
@@ -67,9 +69,9 @@ flowchart TD;
 
         id6[\Source Data\]-- Download-->id7(CSV)
 
-        id7-.->id110
+        id7-. Read .->id110
         
-        id100((Design))-- Create -->id110(R Scripts)
+        id100((Start))-- Create -->id110(R Scripts)
         
         id110-- Load Data --> id2
         
