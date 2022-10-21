@@ -30,7 +30,6 @@ We  decided to use Github Markdown as the presentation format rather than more t
 ## Data Wrangling 
 
 See full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/DATA607_Project3_Wrangling.pdf)
-
 <details>
            <summary>R code (Click Me)</summary>
 
@@ -146,25 +145,27 @@ skills_in_demand
 ```
 
 The files were then written to CSV and committed to project GitHub repository. 
-
 </details> 
            
 ***
 
 ## Database Design and Data Loading 
 
-1. **Cloud database selection** - shared infra, configuration, monitoring, security, etc.
-           
+1. **Cloud database selection** - shared infra, configuration, monitoring, security, etc.          
 <details><summary>AWS MySQL (Click me)</summary>
            
 ![AWS Cloudwatch](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/AWS%20RDS%20Cloudwatch.png)
            
 </details>
            
-2. **Design Driven Development** - start with normalized [ER Diagram](#data-model) using databse `MySQL Workbench`
-
+2. **Design Driven Development** - start with normalized [ER Diagram](#data-model)
+<details><summary>MySQL Workbench ER Designer(Click me)</summary>
+      
+![ER Designer](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/MySQLWorkbench_ER.png)
+      
+</details>
+   
 3. **Forward engineer schema (auto-generate) DDL from ER**
-
 <details><summary>DDL SQL (Click me)</summary>
 
 ```
@@ -242,7 +243,6 @@ flowchart TD;
 ```
 
 ## Data Model
-
    <details><summary>ER Diagram (Click Me)</summary>
 
 ![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
