@@ -28,6 +28,9 @@ The team discussed refreshing the source dataset to make it more current, but th
 
 See full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/DATA607_Project3_Wrangling.pdf)
 
+<details>
+           <summary>R code (Click Me)</summary>
+
 I. Using packages:
 
 ```
@@ -141,6 +144,7 @@ skills_in_demand
 
 The files were then written to CSV and committed to project GitHub repository. 
 
+</details>
 ***
 
 ## Database Design and Data Loading 
