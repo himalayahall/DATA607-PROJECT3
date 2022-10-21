@@ -25,6 +25,8 @@ We  decided to use Github Markdown as the presentation format rather than more t
    - Data was available for download as a multi-sheet [MS Excel](https://docs.google.com/spreadsheets/d/1lac1H2IgCDCs9LLTQL6yb6MUPN1u4C5fJv_6YjipIaM/edit#gid=469548382)
    - Team discussed refreshing the source dataset to make it more current. Unfortunately, vendor APIs requirre paid subscriptions. In addition, we did not have sufficient time to explore no-fee alternatives
 
+The data source used was a convenient alternative to web scraping job site’s APIs which were inaccessible to use in the say way the dataset was generated from the article. It’s important to note that using hard data from the job site directly would have been the most ideal way to determine the most relevant data science skills over the qualitative data from the article. The reason being that quantitative data gives a real-world source of information and gives us a repeatable metric in which then can be compared to the qualitative data.
+
 ***
 
 ## Data Wrangling 
