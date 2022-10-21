@@ -21,19 +21,109 @@ See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md)
 ***
 
 ## Data Wrangling 
-1. Loading data locally
+1. Loading data locally:
 
 ```
 # read file locally 
 file <- "/Users/joshiden/Documents/Classes/CUNY SPS/Fall 2022/DATA 607/Projects/Project 3/Data Science Career Terms.xlsx"
 excel <- read_excel(file)
+
 # store sheet names
 sheets <- excel_sheets(file)
+
 # read sheets into dataframes
 ds_skills <- read_excel(file, sheet = sheets[1])
 ds_software <- read_excel(file, sheet = sheets[2])
 education <- read_excel(file, sheet=sheets[7])
 ```
+
+2. Tidying data by keyword category for table creation:
+
+```
+# Find row index of Total
+totalIdx <- which(ds_skills$Keyword == "Total")
+skills <- ds_skills |> 
+           # Grab beginning rows until and excluding Total entry
+           slice_head(n = totalIdx - 1) |>
+           # select Keyword column
+           select(Keyword) |>
+           # drop NA
+           filter(! is.na(Keyword)) |>
+           # uppercase
+           mutate(Keyword = str_to_upper(Keyword)) |>
+           # add T_GENERAL and T_SOFT categories
+           mutate(Category=ifelse(Keyword == "COMMUNICATION", "T_SOFT", 
+                    ifelse(Keyword == "PROJECT MANAGEMENT", "T_SOFT", "T_GENERAL")))
+                    
+totalIdx <- which(ds_software$Keyword == "Total")
+software <- ds_software |> 
+           # Grab beginning rows until and excluding Total entry
+           slice_head(n = totalIdx - 1) |> 
+           # select Keyword column
+           select(Keyword) |>
+           # drop NA
+           filter(! is.na(Keyword)) |>
+           # uppercase
+           mutate(Keyword = str_to_upper(Keyword)) |>
+           # add T_SOFTWARE category
+           mutate(Category = "T_SOFTWARE")
+```
+
+3. Transforming the data for table population:
+
+```
+# dataframe: ds_skills_transformed 
+# keep only first 15 rows
+# Keyword to upper
+# pivot columns to column: source
+ds_skills_transformed <- ds_skills |>
+  head(15) |>
+  mutate(Keyword = toupper(Keyword)) |>
+  rename(KEYWORD = Keyword) |>
+  pivot_longer(cols=("LinkedIn":"Monster"), names_to="SOURCE", values_to="COUNT") |>
+  mutate(SOURCE = toupper(SOURCE), SURVEY_DATE=ymd("2018-06-15")) |>
+  arrange(KEYWORD,SOURCE)
+ds_skills_transformed
+
+# dataframe: ds_software_transformed
+# keep top 37 rows
+# keyword to upper
+# pivot columns to source
+# source column to upper
+# add date column
+ds_software_transformed <- ds_software |>
+  select(c("Keyword":"Monster")) |>
+  head(37) |>
+  mutate(Keyword = toupper(Keyword)) |>
+  rename(KEYWORD = Keyword) |>
+  pivot_longer(cols=("LinkedIn":"Monster"), names_to="SOURCE", values_to="COUNT") |>
+  mutate(SOURCE = toupper(SOURCE), SURVEY_DATE=ymd("2018-06-15")) |>
+  arrange(KEYWORD,SOURCE)
+ds_software_transformed
+
+# dataframe: education_transformed
+# keyword to uppercase
+# pivot columns to source
+# source column to uppercase
+# add date column
+# drop AngelList column
+# drop NA values
+education_transformed <- education |>
+  mutate(Keyword = toupper(Keyword)) |>
+  rename(KEYWORD = Keyword) |>
+  pivot_longer(cols=("LinkedIn":"SimplyHired"), names_to="SOURCE", values_to="COUNT") |>
+  mutate(SOURCE = toupper(SOURCE), SURVEY_DATE=ymd("2018-06-15")) |>
+  subset(select = -c(AngelList)) |>
+  drop_na() |>
+  arrange(KEYWORD,SOURCE)
+education_transformed
+
+# dataframe: skills_in_demand
+skills_in_demand <- rbind(ds_skills_transformed,ds_software_transformed)
+skills_in_demand
+```
+
+The files were then written to CSV and committed to project GitHub repository. 
 
 ***
 
