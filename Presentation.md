@@ -43,7 +43,7 @@ library(lubridate)
 ```
 </details> 
 <details>
-   <summary>1. Loading data locally:</summary>
+   <summary>1. Loading data locally:</summary>   
 ```
 # read file locally 
 file <- "/Users/joshiden/Documents/Classes/CUNY SPS/Fall 2022/DATA 607/Projects/Project 3/Data Science Career Terms.xlsx"
