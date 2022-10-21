@@ -151,7 +151,7 @@ The files were then written to CSV and committed to project GitHub repository.
 
 ## Database Design and Data Loading 
 
-1. Cloud database - shared infra, configuration, monitoring, security, etc.
+1. **Cloud database selection** - shared infra, configuration, monitoring, security, etc.
            
 <details><summary>AWS MySQL (Click me)</summary>
            
@@ -159,12 +159,12 @@ The files were then written to CSV and committed to project GitHub repository.
            
 </details>
            
-2. Design Driven Development - start with normalized [ER Diagram](#data-model) using databse IDE
+2. **Design Driven Development** - start with normalized [ER Diagram](#data-model) using databse IDE
 ```
 MySQL Workbench
 ER Designer
 ```
-3. Forward engineer schema (auto) DDL from ER
+3. **Forward engineer schema (auto-generate) DDL from ER**
 ```
 -- -----------------------------------------------------
 -- Schema Project3
@@ -186,9 +186,14 @@ ENGINE = InnoDB;
 ...
 ```
            
-4. Create schema from DDL
-5. Data import wizard
-
+4. **Create schema from DDL**
+5. **Load data**
+<details><summary>Data Import Wizard (Click me)</summary>
+   
+![AWS Cloudwatch](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/DataImportWizard.png)
+   
+</details>
+   
 ***  
            
 
