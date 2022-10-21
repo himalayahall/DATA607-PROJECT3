@@ -11,7 +11,9 @@
 
 # Project Overview
 
-See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md) for team introduction and project overview. 
+See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md) for team introduction and project overview.
+
+We  decided to use Github Markdown as the presentation format rather than more traditional presentation tools like Powerpoint. This is a nod to our developer ethos along with the preference to leverage as much open-source software and free tooling as possible. We have tried our best to maintain a balance between slick presentation and *no fluff just stuff*.
 
 ***
 
@@ -151,7 +153,7 @@ The files were then written to CSV and committed to project GitHub repository.
 
 ## Database Design and Data Loading 
 
-1. Cloud database - shared infra, configuration, monitoring, security, etc.
+1. **Cloud database selection** - shared infra, configuration, monitoring, security, etc.
            
 <details><summary>AWS MySQL (Click me)</summary>
            
@@ -159,12 +161,12 @@ The files were then written to CSV and committed to project GitHub repository.
            
 </details>
            
-2. Design Driven Development - start with normalized [ER Diagram](#data-model) using databse IDE
-```
-MySQL Workbench
-ER Designer
-```
-3. Forward engineer schema (auto) DDL from ER
+2. **Design Driven Development** - start with normalized [ER Diagram](#data-model) using databse `MySQL Workbench`
+
+3. **Forward engineer schema (auto-generate) DDL from ER**
+
+<details><summary>DDL SQL (Click me)</summary>
+
 ```
 -- -----------------------------------------------------
 -- Schema Project3
@@ -185,10 +187,16 @@ CREATE TABLE IF NOT EXISTS `Project3`.`SOURCE` (
 ENGINE = InnoDB;
 ...
 ```
+   </details>
            
-4. Create schema from DDL
-5. Data import wizard
-
+4. **Create schema from DDL**
+5. **Load data**
+<details><summary>Data Import Wizard (Click me)</summary>
+   
+![AWS Cloudwatch](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/DataImportWizard.png)
+   
+</details>
+   
 ***  
            
 
@@ -234,9 +242,8 @@ flowchart TD;
 ```
 
 ## Data Model
-The ER modeling was executed by MySQL Workbench. After creating normalized data model entities, the auto-generate SQL scripts for database schema was created, which made it easy to forward engineer schema on both AWS and local MySQL. Schema includes foreign key relationships and referential integrity checks/actions (e.g. cascade delete). As mentioned above, entities include timestamps for tracking survey date and record level create/update actions.
 
-<details><summary>ER Diagram (Click Me)</summary>
+   <details><summary>ER Diagram (Click Me)</summary>
 
 ![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
      
