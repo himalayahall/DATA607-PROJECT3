@@ -58,6 +58,7 @@ ds_software <- read_excel(file, sheet = sheets[2])
 education <- read_excel(file, sheet=sheets[7])
 ```
 </details>
+
 2. Tidying data by keyword category for table creation:
 
 ```
