@@ -21,6 +21,18 @@ See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md)
 ***
 
 ## Data Wrangling 
+
+See full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/DATA607_Project3_Wrangling.pdf)
+
+I. Using packages:
+
+```
+library(tidyverse)
+library(readxl)
+library(stringr)
+library(lubridate)
+```
+
 1. Loading data locally:
 
 ```
