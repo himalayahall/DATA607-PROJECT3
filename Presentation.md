@@ -28,6 +28,9 @@ The team discussed refreshing the source dataset to make it more current, but th
 
 See full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/DATA607_Project3_Wrangling.pdf)
 
+<details>
+           <summary>R Code (Click Me)</summary>
+
 I. Using packages:
 
 ```
@@ -203,7 +206,8 @@ flowchart TD;
       end
 
 ```
-
+</details>
+           
 ***
 
 ## Data Model
