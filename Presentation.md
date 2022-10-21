@@ -27,11 +27,11 @@ See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md)
 
 ## Database Design and Data Loading 
 
-1. Cloud database - shared infra, security, configuration, and data
+1. Cloud database - shared infra, security, configuration, and mintoring
 ```
 AWS MySQL
 ```
-2. Monitoring - [Cloudwatch](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/AWS%20RDS%20Cloudwatch.png)
+![Cloudwatch](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/AWS%20RDS%20Cloudwatch.png)
 
 2. Design Driven Development - first create normalized [ER Diagram](#data-model) using databse IDE
 ```
