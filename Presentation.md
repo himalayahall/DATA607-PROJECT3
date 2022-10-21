@@ -145,35 +145,54 @@ skills_in_demand
 
 The files were then written to CSV and committed to project GitHub repository. 
 
-</details>  
-
+</details> 
            
 ***
 
 ## Database Design and Data Loading 
 
-1. Cloud database - shared infra, security, configuration, and mintoring
-```
-AWS MySQL
-```
-![Cloudwatch](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/AWS%20RDS%20Cloudwatch.png)
-
+1. Cloud database - shared infra, configuration, monitoring, security, etc.
+           
+<details><summary>AWS MySQL (Click me)</summary>
+           
+![AWS Cloudwatch](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/AWS%20RDS%20Cloudwatch.png)
+           
+</details>
+           
 2. Design Driven Development - start with normalized [ER Diagram](#data-model) using databse IDE
 ```
-MySQLWorkbench
+MySQL Workbench
 ER Designer
 ```
-3. Code generation
+3. Forward engineer schema (auto) DDL from ER
 ```
-DDL SQL
+-- -----------------------------------------------------
+-- Schema Project3
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `Project3` DEFAULT CHARACTER SET utf8 ;
+USE `Project3` ;
+
+-- -----------------------------------------------------
+-- Table `Project3`.`SOURCE`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Project3`.`SOURCE` (
+  `SOURCE_NAME` VARCHAR(45) NOT NULL,
+  `DESC` VARCHAR(45) NULL,
+  `TS_UPDATED` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `TS_CREATED` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`SOURCE_NAME`),
+  UNIQUE INDEX `NAME_UNIQUE` (`SOURCE_NAME` ASC) VISIBLE)
+ENGINE = InnoDB;
+...
 ```
-4. Forward engineer database schema from DDL
+           
+4. Create schema from DDL
 5. Data import wizard
 
 ***  
            
 
-# Database Design Process
+## Database Design Process
 
 ```mermaid
 flowchart TD;
@@ -214,16 +233,14 @@ flowchart TD;
 
 ```
 
-</details>
-
 ## Data Model
 The ER modeling was executed by MySQL Workbench. After creating normalized data model entities, the auto-generate SQL scripts for database schema was created, which made it easy to forward engineer schema on both AWS and local MySQL. Schema includes foreign key relationships and referential integrity checks/actions (e.g. cascade delete). As mentioned above, entities include timestamps for tracking survey date and record level create/update actions.
 
 <details><summary>ER Diagram (Click Me)</summary>
 
 ![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
-
-           </details>
+     
+</details>
            
 <details><summary>Database Entities (Click Me)</summary>
 
