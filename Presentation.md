@@ -16,16 +16,17 @@ See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md)
 ***
 
 # Data Source
-(describe data source)
+
+The objective of this project was to answer the following: Which are the most valued data science skills? To answer this question, it was determined to use an existing data set from Jeff Hale article The Most In-Demand Skills for Data Scientists (https://towardsdatascience.com/the-most-in-demand-skills-for-data-scientists-4a4a8db896db). This data was available for download as a multi-sheet excel file (https://docs.google.com/spreadsheets/d/1lac1H2IgCDCs9LLTQL6yb6MUPN1u4C5fJv_6YjipIaM/edit#gid=469548382).
+Data was extracted from multiple Excel sheets, tidied using R, and output CSVs were generated for populating the core data model entities. The output CSVs were uploaded into an AWS MySQL database for shared storage and access. The database was then accessed through R and multiple EDAs were generated for further analysis and investigation. 
+The team discussed refreshing the source dataset to make it more current, but the vendor APIs required paid subscriptions. In addition, we did not have sufficient time to explore no-fee alternatives.
+
 
 ***
 
 ## Data Wrangling 
 
 See full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/DATA607_Project3_Wrangling.pdf)
-
-<details>
-           <summary>R Code (Click Me)</summary>
 
 I. Using packages:
 
@@ -140,8 +141,6 @@ skills_in_demand
 
 The files were then written to CSV and committed to project GitHub repository. 
 
-</details>
-           
 ***
 
 ## Database Design and Data Loading 
@@ -208,7 +207,7 @@ flowchart TD;
 ***
 
 ## Data Model
-(describe data model)
+The ER modeling was executed by MySQL Workbench. After creating normalized data model entities, the auto-generate SQL scripts for database schema was created, which made it easy to forward engineer schema on both AWS and local MySQL. Schema includes foreign key relationships and referential integrity checks/actions (e.g. cascade delete). As mentioned above, entities include timestamps for tracking survey date and record level create/update actions.
 
 ![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
 
