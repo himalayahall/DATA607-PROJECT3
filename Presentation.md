@@ -11,7 +11,9 @@
 
 # Project Overview
 
-See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md) for team introduction and project overview. 
+See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md) for team introduction and project overview.
+
+We  decided to use Github Markdown as the presentation format rather than more traditional presentation tools like Powerpoint. This is a nod to our developer ethos along with the preference to leverage as much open-souce and free tooling as possible. We have tried our best to maintain a balance between slick presentation and *no fluff just stuff*.
 
 ***
 
