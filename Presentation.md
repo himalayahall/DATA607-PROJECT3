@@ -21,9 +21,9 @@ See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md)
 ***
 
 ## Data Wrangling 
-1. Loading data locallyt
+1. Loading data locally
 
-'''
+```
 # read file locally 
 file <- "/Users/joshiden/Documents/Classes/CUNY SPS/Fall 2022/DATA 607/Projects/Project 3/Data Science Career Terms.xlsx"
 excel <- read_excel(file)
@@ -33,7 +33,7 @@ sheets <- excel_sheets(file)
 ds_skills <- read_excel(file, sheet = sheets[1])
 ds_software <- read_excel(file, sheet = sheets[2])
 education <- read_excel(file, sheet=sheets[7])
-'''
+```
 
 ***
 
