@@ -144,7 +144,9 @@ skills_in_demand
 
 The files were then written to CSV and committed to project GitHub repository. 
 
-</details>
+</details>  
+
+           
 ***
 
 ## Database Design and Data Loading 
@@ -167,7 +169,8 @@ DDL SQL
 4. Forward engineer database schema from DDL
 5. Data import wizard
 
-***
+***  
+           
 
 # Database Design Process
 
