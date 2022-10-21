@@ -159,12 +159,12 @@ The files were then written to CSV and committed to project GitHub repository.
            
 </details>
            
-2. **Design Driven Development** - start with normalized [ER Diagram](#data-model) using databse IDE
-```
-MySQL Workbench
-ER Designer
-```
+2. **Design Driven Development** - start with normalized [ER Diagram](#data-model) using databse `MySQL Workbench`
+
 3. **Forward engineer schema (auto-generate) DDL from ER**
+
+<details><summary>DDL SQL (Click me)</summary>
+
 ```
 -- -----------------------------------------------------
 -- Schema Project3
@@ -185,6 +185,7 @@ CREATE TABLE IF NOT EXISTS `Project3`.`SOURCE` (
 ENGINE = InnoDB;
 ...
 ```
+   </details>
            
 4. **Create schema from DDL**
 5. **Load data**
@@ -239,9 +240,8 @@ flowchart TD;
 ```
 
 ## Data Model
-The ER modeling was executed by MySQL Workbench. After creating normalized data model entities, the auto-generate SQL scripts for database schema was created, which made it easy to forward engineer schema on both AWS and local MySQL. Schema includes foreign key relationships and referential integrity checks/actions (e.g. cascade delete). As mentioned above, entities include timestamps for tracking survey date and record level create/update actions.
 
-<details><summary>ER Diagram (Click Me)</summary>
+   <details><summary>ER Diagram (Click Me)</summary>
 
 ![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
      
