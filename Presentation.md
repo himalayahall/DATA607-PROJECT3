@@ -33,7 +33,7 @@ AWS MySQL
 ```
 ![Cloudwatch](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/AWS%20RDS%20Cloudwatch.png)
 
-2. Design Driven Development - first create normalized [ER Diagram](#data-model) using databse IDE
+2. Design Driven Development - start with normalized [ER Diagram](#data-model) using databse IDE
 ```
 MySQLWorkbench
 ER Designer
