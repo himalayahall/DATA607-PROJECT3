@@ -17,10 +17,11 @@ See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md)
 
 # Data Source
 
-The objective of this project was to answer the following: Which are the most valued data science skills? To answer this question, it was determined to use an existing data set from Jeff Hale article The Most In-Demand Skills for Data Scientists (https://towardsdatascience.com/the-most-in-demand-skills-for-data-scientists-4a4a8db896db). This data was available for download as a multi-sheet excel file (https://docs.google.com/spreadsheets/d/1lac1H2IgCDCs9LLTQL6yb6MUPN1u4C5fJv_6YjipIaM/edit#gid=469548382).
-Data was extracted from multiple Excel sheets, tidied using R, and output CSVs were generated for populating the core data model entities. The output CSVs were uploaded into an AWS MySQL database for shared storage and access. The database was then accessed through R and multiple EDAs were generated for further analysis and investigation. 
-The team discussed refreshing the source dataset to make it more current, but the vendor APIs required paid subscriptions. In addition, we did not have sufficient time to explore no-fee alternatives.
-
+1. **Objective** - to answer the following question: which are the most valued data science skills? 
+2. **Data Source** 
+   - Use existing data set from Jeff Hale article [The Most In-Demand Skills for Data Scientists](https://towardsdatascience.com/the-most-in-demand-skills-for-data-scientists-4a4a8db896db)
+   - Data was available for download as a multi-sheet [MS Excel](https://docs.google.com/spreadsheets/d/1lac1H2IgCDCs9LLTQL6yb6MUPN1u4C5fJv_6YjipIaM/edit#gid=469548382)
+   - Team discussed refreshing the source dataset to make it more current. Unfortunately, vendor APIs requirre paid subscriptions. In addition, we did not have sufficient time to explore no-fee alternatives
 
 ***
 
