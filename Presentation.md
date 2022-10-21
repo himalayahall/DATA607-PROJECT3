@@ -165,6 +165,8 @@ DDL SQL
 
 ***
 
+# Database Design Process
+
 ```mermaid
 flowchart TD;
     
@@ -204,13 +206,17 @@ flowchart TD;
 
 ```
 
-***
+</details>
 
 ## Data Model
 The ER modeling was executed by MySQL Workbench. After creating normalized data model entities, the auto-generate SQL scripts for database schema was created, which made it easy to forward engineer schema on both AWS and local MySQL. Schema includes foreign key relationships and referential integrity checks/actions (e.g. cascade delete). As mentioned above, entities include timestamps for tracking survey date and record level create/update actions.
 
+<details><summary>ER Diagram (Click Me)</summary>
+
 ![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
 
+           </details>
+           
 <details><summary>Database Entities (Click Me)</summary>
 
 1. SOURCE  
