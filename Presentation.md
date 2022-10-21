@@ -41,9 +41,8 @@ library(readxl)
 library(stringr)
 library(lubridate)
 ```
-</details> 
-<details>
-   <summary>1. Loading data locally:</summary>   
+
+1. Loading data locally:  
 ```
 # read file locally 
 file <- "/Users/joshiden/Documents/Classes/CUNY SPS/Fall 2022/DATA 607/Projects/Project 3/Data Science Career Terms.xlsx"
@@ -144,6 +143,7 @@ education_transformed
 skills_in_demand <- rbind(ds_skills_transformed,ds_software_transformed)
 skills_in_demand
 ```
+</details> 
 
 The files were then written to CSV and committed to project GitHub repository. 
 
