@@ -33,9 +33,7 @@ The data source used was a convenient alternative to web scraping job site’s A
 
 See full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/DATA607_Project3_Wrangling.pdf)
 <details>
-           <summary>R code (Click Me)</summary>
-
-I. Using packages:
+   <summary>I. Using packages:</summary>
 
 ```
 library(tidyverse)
@@ -43,9 +41,9 @@ library(readxl)
 library(stringr)
 library(lubridate)
 ```
-
-1. Loading data locally:
-
+</details> 
+<details>
+   <summary>1. Loading data locally:</summary>
 ```
 # read file locally 
 file <- "/Users/joshiden/Documents/Classes/CUNY SPS/Fall 2022/DATA 607/Projects/Project 3/Data Science Career Terms.xlsx"
@@ -59,7 +57,7 @@ ds_skills <- read_excel(file, sheet = sheets[1])
 ds_software <- read_excel(file, sheet = sheets[2])
 education <- read_excel(file, sheet=sheets[7])
 ```
-
+</details>
 2. Tidying data by keyword category for table creation:
 
 ```
@@ -147,7 +145,7 @@ skills_in_demand
 ```
 
 The files were then written to CSV and committed to project GitHub repository. 
-</details> 
+
            
 ***
 
