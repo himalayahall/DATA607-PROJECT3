@@ -31,7 +31,7 @@ The data source used was a convenient alternative to web scraping job site’s A
 
 ## Data Wrangling 
 
-See full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/DATA607_Project3_Wrangling.pdf)
+See full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/source/Wrangling.pdf)
 <details>
    <summary>I. Using packages:</summary>
   
