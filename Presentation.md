@@ -406,16 +406,16 @@ ggplot(education_count, aes(x=reorder(EDUCATION, TOTAL),
 </details>
 
 
-Word Cloud:   
+#   
 ![](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/EDA/Wordcloud.png?raw=true)  
 		      
-Skills:
+#
 ![](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/EDA/Skills_In_Demand.png?raw=true)
 		   
-Top Skills:
+#
 ![](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/EDA/Top_Ten_Skills.png?raw=true)
 		   
-Education:
+#
 ![](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/EDA/Education_Count.png?raw=true)
 	 	   
 
