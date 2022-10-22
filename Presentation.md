@@ -290,7 +290,7 @@ library(tidyverse)
 ```
  </details>
    <details>
-   <summary>1. Connecting to DB:</summary>
+   <summary>1. Connecting to DB</summary>
 
 ```
 # Enter credentials
