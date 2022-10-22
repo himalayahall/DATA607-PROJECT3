@@ -277,7 +277,7 @@ flowchart TD;
 
 # Exploratory Data Analysis 
 
- Full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/EDA/DATA607_Project3_EDA_V2.pdf)
+ Full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/source/EDA.pdf)
 <details>
 	<summary>I. Using packages:</summary>
 
@@ -403,4 +403,20 @@ ggplot(education_count, aes(x=reorder(EDUCATION, TOTAL),
   theme(panel.background=element_rect(size=2,colour="lightblue")) +
   labs(x = "EDUCATION", title="EDUCATION IN DEMAND")
 ```
+</details>
+	   <details><summary>4. Graphics</summary>
+Word Cloud: 
+![](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/EDA/Wordcloud.png?raw=true)
+		   
+Skills:
+![](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/EDA/Skills_In_Demand.png?raw=true)
+		   
+Top Skills:
+![](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/EDA/Top_Ten_Skills.png?raw=true)
+		   
+Education:
+![](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/EDA/Education_Count.png?raw=true)
+		   
+
+	   
 ***
