@@ -31,7 +31,7 @@ The data source used was a convenient alternative to web scraping job site’s A
 
 ## Data Wrangling 
 
-See full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/DATA607_Project3_Wrangling.pdf)
+See full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/source/Wrangling.pdf)
 <details>
    <summary>I. Using packages:</summary>
   
@@ -277,7 +277,7 @@ flowchart TD;
 
 # Exploratory Data Analysis 
 
- Full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/EDA/DATA607_Project3_EDA_V2.pdf)
+ Full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/source/EDA.pdf)
 <details>
 	<summary>I. Using packages:</summary>
 
@@ -403,4 +403,21 @@ ggplot(education_count, aes(x=reorder(EDUCATION, TOTAL),
   theme(panel.background=element_rect(size=2,colour="lightblue")) +
   labs(x = "EDUCATION", title="EDUCATION IN DEMAND")
 ```
+</details>
+
+
+#   
+![](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/EDA/Wordcloud.png?raw=true)  
+		      
+#
+![](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/EDA/Skills_In_Demand.png?raw=true)
+		   
+#
+![](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/EDA/Top_Ten_Skills.png?raw=true)
+		   
+#
+![](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/EDA/Education_Count.png?raw=true)
+	 	   
+
+	   
 ***
