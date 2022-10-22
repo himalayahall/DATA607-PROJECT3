@@ -279,7 +279,7 @@ flowchart TD;
 
  Full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/source/EDA.pdf)
 <details>
-	<summary>I. Using packages:</summary>
+	<summary>I. Using Packages</summary>
 
 ```
 library(DBI)
@@ -290,7 +290,7 @@ library(tidyverse)
 ```
  </details>
    <details>
-   <summary>1. Connect to DB:</summary>
+   <summary>1. Connecting to DB:</summary>
 
 ```
 # Enter credentials
@@ -307,7 +307,7 @@ projectDb <- dbConnect(MariaDB(), user='guest', password=pw, dbname='Project3', 
 
 </details>
    <details>
-   <summary>2. Load data:
+   <summary>2. Loading Data
 </summary>
 
 
@@ -336,7 +336,7 @@ dbClearResult(results1) # clear the result
 ```
  </details>
    <details>
-   <summary>3. Create visuals and table:</summary>
+   <summary>3. Create Summary Tables and Visuals</summary>
 
 ```
 # Summary skill counts
