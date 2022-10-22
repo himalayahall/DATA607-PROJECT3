@@ -336,7 +336,7 @@ dbClearResult(results1) # clear the result
 ```
  </details>
    <details>
-   <summary>3. Create Summary Tables and Visuals</summary>
+   <summary>3. Creating Summary Tables and Visuals</summary>
 
 ```
 # Summary skill counts
