@@ -105,6 +105,19 @@ ggplot(skills_count, aes(x=reorder(SKILL, TOTAL),
   labs(x = "SKILL", title="SKILLS IN DEMAND")
 ```
 
+## Top Ten Skills
+
+```{r}
+top_ten <- head(skills_count, 10)
+
+ggplot(top_ten, aes(x=reorder(SKILL, TOTAL),
+                         y=TOTAL)) +
+  geom_col(fill="lightblue", color="white") +
+  coord_flip() + 
+  theme(axis.text.y = element_text(size = 8)) +
+  labs(x = "SKILL", title="TOP TEN SKILLS")
+ ```
+
 #### Skills count by keyword
 
 ```{r}
