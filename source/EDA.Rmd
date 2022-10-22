@@ -1,0 +1,145 @@
+---
+title: "EDA"
+author: ''
+date: ''
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Load Library
+
+```{r}
+library(DBI)
+library(RMariaDB)
+library(wordcloud)
+library(RColorBrewer)
+library(tidyverse)
+```
+
+```{r user-pass}
+user <- 'guest'
+pw <- 'guestpass'
+hostname <- 'cunyspsds.c5iiratvieki.us-east-1.rds.amazonaws.com'
+```
+
+```{r connect Db}
+projectDb <- dbConnect(MariaDB(), user='guest', password=pw, dbname='Project3', host=hostname)
+```
+
+```{r look at tables}
+dbListTables(projectDb)
+```
+
+## Import Data
+
+```{r skill}
+# qry import skill_in_demand table
+qry <- "SELECT * FROM SKILL_IN_DEMAND;"
+# store the results as a dataframe
+rs <- dbSendQuery(projectDb, qry)
+skills <- dbFetch(rs)
+dbClearResult(rs) # clear the result
+```
+
+```{r education in demand}
+# query1: import education_in_demand table
+query1 <- "SELECT * FROM EDUCATION_IN_DEMAND;"
+# store the results as a dataframe
+results1 <- dbSendQuery(projectDb,query1)
+education <- dbFetch(results1)
+dbClearResult(results1) # clear the result
+```
+
+
+## EXPLORATORY DATA ANALYSIS
+
+#### Summary skill counts
+
+```{r skill counts}
+# Summary skill counts
+skills_summary <- skills %>%
+                    group_by(SKILL_KEYWORD) %>%
+                    summarise(TOTAL = sum(COUNT))
+```
+
+#### Wordcloud
+
+```{r wordcloud}
+set.seed(1234)
+wordcloud::wordcloud(words = skills_summary$SKILL_KEYWORD, 
+                     freq = skills_summary$TOTAL, 
+                     min.freq = 100, 
+                     max.words = 50, 
+                     random.order = FALSE, 
+                     random.color = FALSE, 
+                     rot.per = 0.25, 
+                     colors = brewer.pal(8, "Dark2"), 
+                     scale = c(2.5, 0.40))
+```
+
+#### Skills count by keyword graphic
+
+```{r}
+skills_count <- skills |> 
+  group_by(SKILL = SKILL_KEYWORD) |>
+  summarize(TOTAL=sum(COUNT)) |>
+  arrange(desc(TOTAL))
+```
+
+```{r}
+ggplot(skills_count, aes(x=reorder(SKILL, TOTAL),
+                         y=TOTAL)) +
+  geom_col(fill="lightblue", color="white") +
+  coord_flip() + 
+  theme(axis.text.y = element_text(size = 4)) +
+  labs(x = "SKILL", title="SKILLS IN DEMAND")
+```
+
+## Top Ten Skills
+
+```{r}
+top_ten <- head(skills_count, 10)
+ggplot(top_ten, aes(x=reorder(SKILL, TOTAL),
+                         y=TOTAL)) +
+  geom_col(fill="lightblue", color="white") +
+  coord_flip() + 
+  theme(axis.text.y = element_text(size = 8)) +
+  labs(x = "SKILL", title="TOP TEN SKILLS")
+```
+
+#### Skills count by keyword
+
+```{r}
+skills |> 
+  group_by(SKILL = SKILL_KEYWORD) |>
+  summarize(TOTAL=sum(COUNT)) |>
+  arrange(desc(TOTAL))
+```
+
+#### Education count by keyword
+
+```{r}
+# Melissa EDA
+education_count <- education |>
+  group_by(EDUCATION = EDUCATION_KEYWORD) |>
+  summarize(TOTAL=sum(COUNT)) |>
+  arrange(desc(TOTAL))
+```
+
+#### Plot of Degrees of Education Count
+
+```{r}
+ggplot(education_count, aes(x=reorder(EDUCATION, TOTAL),
+                            y=TOTAL)) +
+  geom_col(fill="yellow", color="white") +
+  geom_text(aes(label = signif(TOTAL)), nudge_y = 300) +
+  theme(axis.text = element_text(size = 6)) +
+  theme(panel.background=element_rect(size=2,colour="yellow")) +
+  labs(x = "EDUCATION", title="EDUCATION IN DEMAND")
+```
