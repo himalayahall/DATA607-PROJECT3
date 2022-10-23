@@ -421,3 +421,17 @@ ggplot(education_count, aes(x=reorder(EDUCATION, TOTAL),
 
 	   
 ***
+	   
+# Conclusions
+	   
+1. The limitation of the data collected prevents an analysis of the frequency of terms appearing per job listing, as listing information was not collected.
+
+2. The presence of generic terms such as "Analysis", "Communication", "Visualization", "Mathematics", and "Kaggle" dilutes specificiy of the data.
+
+3. Of specific skills, Python and Machine Learning are by far the most popular, followed by Statistics, Computer Science, and R.
+
+4. The nature of the data collected prevented making a distinction of the frequency of desired education, as it is not clear if multiple educational backgrounds are present within the same listing, as a Bachelor's degree may be listed as a minimum requirement, with Masters, phD preferred, etc.
+
+5. Of all soft skills, communication is by far the most frequently listed amongst desired skills.  
+	   
+	   
