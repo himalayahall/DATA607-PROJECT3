@@ -29,6 +29,127 @@ The data source used was a convenient alternative to web scraping job site’s A
 
 ***
 
+## Database - Tools, Design 
+
+1. **Cloud database selection** - shared infra, configuration, monitoring, security, etc.          
+<details><summary>AWS MySQL (Click me)</summary>
+           
+![AWS Cloudwatch](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/AWS%20RDS%20Cloudwatch.png)
+           
+</details>
+           
+2. **Design Driven Development** - start with normalized [ER Diagram](#data-model)
+<details><summary>MySQL Workbench ER Designer(Click me)</summary>
+      
+![ER Designer](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/MySQLWorkbench_ER.png)
+      
+</details>
+   
+3. **Forward engineer schema (auto-generate) DDL from ER**
+<details><summary>DDL SQL (Click me)</summary>
+
+```
+-- -----------------------------------------------------
+-- Schema Project3
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `Project3` DEFAULT CHARACTER SET utf8 ;
+USE `Project3` ;
+
+-- -----------------------------------------------------
+-- Table `Project3`.`SOURCE`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `Project3`.`SOURCE` (
+  `SOURCE_NAME` VARCHAR(45) NOT NULL,
+  `DESC` VARCHAR(45) NULL,
+  `TS_UPDATED` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `TS_CREATED` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`SOURCE_NAME`),
+  UNIQUE INDEX `NAME_UNIQUE` (`SOURCE_NAME` ASC) VISIBLE)
+ENGINE = InnoDB;
+...
+```
+   </details>
+           
+4. **Create schema from DDL**
+5. **Load data**
+<details><summary>Data Import Wizard (Click me)</summary>
+   
+![AWS Cloudwatch](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/DataImportWizard.png)
+   
+</details>
+   
+***  
+           
+
+## Database - Design Process
+
+```mermaid
+flowchart TD;
+    
+    subgraph Database Install
+    
+        id1((Start))-- Provision -->id2[(AWS MySQL)]
+        
+        id2-. Monitor .->id3(AWS CloudWatch)
+    
+    end
+    
+    subgraph Data Model and Schema Creation
+    
+        id10((Start))-- Data Model -->id20{Good enough?}
+    
+        id20-- Yes -->id30(ER)
+    
+        id20-- No -->id10
+    
+        id30-- Auto Generate -->id40(DDL SQL Script)
+    
+        id40-- Execute -->id2
+
+    end
+    
+    subgraph Data Wrangling  
+
+        id6[\Source Data\]-- Download-->id7(XSLX)
+
+        id7-. Read .->id110
+        
+        id100((Start))-- Create -->id110(R Scripts)
+        
+        id110-- Load Data --> id2
+        
+      end
+
+```
+
+## Data Model
+   <details><summary>ER Diagram (Click Me)</summary>
+
+![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
+     
+</details>
+           
+<details><summary>Database Entities (Click Me)</summary>
+
+1. SOURCE  
+    Sources of demand data (Linkedin, Monster, etc.)
+    
+2. SKILL  
+    - Skill (R, NLP, Communication, etc.)
+    - Category - in the source dataset skills are grouped 2 tabs: **DS skills**, and **DS software**. Within *DS software* are **technical** skills (machine learning, statistics, etc.) and **soft** skills (communication and project management). Since these sub-catrgories are not identified explicitly in the source dataset, manual tagging was necessary. The final category buckets are **T_SOFTWARE**, **T_GENERAL**, and **SOFT**. The *T* prefeix designates *technical* skills, which includes both  *software* and *general*. The prefix also makes it straightforward to filter technical and soft Data Science skills. 
+    
+3. EDUCATION  
+    Education levels (BS, MS, etc.)
+    
+4. SKILL_IN_DEMAND  
+    Skill demand (Source, skill, demand, etc.)
+    
+5. EDUCATION_IN_DEMAND  
+    Education demand (Source, education, demand, etc.)
+</details>
+
+***
+
 ## Data Wrangling 
 
 See full code and output [here](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/source/Wrangling.pdf)
@@ -150,128 +271,6 @@ skills_in_demand
 </details> 
 
 The files were then written to CSV and committed to project GitHub repository. 
-
-           
-***
-
-## Database Design and Data Loading 
-
-1. **Cloud database selection** - shared infra, configuration, monitoring, security, etc.          
-<details><summary>AWS MySQL (Click me)</summary>
-           
-![AWS Cloudwatch](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/AWS%20RDS%20Cloudwatch.png)
-           
-</details>
-           
-2. **Design Driven Development** - start with normalized [ER Diagram](#data-model)
-<details><summary>MySQL Workbench ER Designer(Click me)</summary>
-      
-![ER Designer](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/MySQLWorkbench_ER.png)
-      
-</details>
-   
-3. **Forward engineer schema (auto-generate) DDL from ER**
-<details><summary>DDL SQL (Click me)</summary>
-
-```
--- -----------------------------------------------------
--- Schema Project3
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `Project3` DEFAULT CHARACTER SET utf8 ;
-USE `Project3` ;
-
--- -----------------------------------------------------
--- Table `Project3`.`SOURCE`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Project3`.`SOURCE` (
-  `SOURCE_NAME` VARCHAR(45) NOT NULL,
-  `DESC` VARCHAR(45) NULL,
-  `TS_UPDATED` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `TS_CREATED` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`SOURCE_NAME`),
-  UNIQUE INDEX `NAME_UNIQUE` (`SOURCE_NAME` ASC) VISIBLE)
-ENGINE = InnoDB;
-...
-```
-   </details>
-           
-4. **Create schema from DDL**
-5. **Load data**
-<details><summary>Data Import Wizard (Click me)</summary>
-   
-![AWS Cloudwatch](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/DataImportWizard.png)
-   
-</details>
-   
-***  
-           
-
-## Database Design Process
-
-```mermaid
-flowchart TD;
-    
-    subgraph Database Install
-    
-        id1((Start))-- Provision -->id2[(AWS MySQL)]
-        
-        id2-. Monitor .->id3(AWS CloudWatch)
-    
-    end
-    
-    subgraph Data Model and Schema Creation
-    
-        id10((Start))-- Data Model -->id20{Good enough?}
-    
-        id20-- Yes -->id30(ER)
-    
-        id20-- No -->id10
-    
-        id30-- Auto Generate -->id40(DDL SQL Script)
-    
-        id40-- Execute -->id2
-
-    end
-    
-    subgraph Data Wrangling  
-
-        id6[\Source Data\]-- Download-->id7(XSLX)
-
-        id7-. Read .->id110
-        
-        id100((Start))-- Create -->id110(R Scripts)
-        
-        id110-- Load Data --> id2
-        
-      end
-
-```
-
-## Data Model
-   <details><summary>ER Diagram (Click Me)</summary>
-
-![ER Diagram](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/images/ER.png)
-     
-</details>
-           
-<details><summary>Database Entities (Click Me)</summary>
-
-1. SOURCE  
-    Sources of demand data (Linkedin, Monster, etc.)
-    
-2. SKILL  
-    - Skill (R, NLP, Communication, etc.)
-    - Category - in the source dataset skills are grouped 2 tabs: **DS skills**, and **DS software**. Within *DS software* are **technical** skills (machine learning, statistics, etc.) and **soft** skills (communication and project management). Since these sub-catrgories are not identified explicitly in the source dataset, manual tagging was necessary. The final category buckets are **T_SOFTWARE**, **T_GENERAL**, and **SOFT**. The *T* prefeix designates *technical* skills, which includes both  *software* and *general*. The prefix also makes it straightforward to filter technical and soft Data Science skills. 
-    
-3. EDUCATION  
-    Education levels (BS, MS, etc.)
-    
-4. SKILL_IN_DEMAND  
-    Skill demand (Source, skill, demand, etc.)
-    
-5. EDUCATION_IN_DEMAND  
-    Education demand (Source, education, demand, etc.)
-</details>
 
 ***
 
