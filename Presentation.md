@@ -1,14 +1,5 @@
 # Presentation
 
-## TODO
-- [ ] Data  - Melissa
-- [ ] Data Wrangling - Josh
-- [ ] Database Design and Data Loading - Jawaid
-- [ ] Data Model - Jawaid
-- [ ] EDAs - Josh and Christian
-
-***
-
 # Project Overview
 
 See [Intro](https://github.com/himalayahall/DATA607-PROJECT3/blob/main/Intro.md) for team introduction and project overview.
